@@ -8,48 +8,9 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".Search" >
 
+    
     <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button1"
-        android:layout_alignBottom="@+id/button1"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="55dp"
-        android:text="Add" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView1"
-        android:layout_alignParentRight="true"
-        android:text="Location"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="68dp"
-        android:text="Item Name"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button1"
-        android:layout_below="@+id/textView1"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="51dp"
-        android:text="Description"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <Button
-        android:id="@+id/button1"
+        android:id="@+id/backSButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -57,5 +18,23 @@
         android:layout_marginBottom="54dp"
         android:layout_marginRight="19dp"
         android:text="Back" />
+
+    <Button
+        android:id="@+id/addSButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/backSButton"
+        android:layout_alignBottom="@+id/backSButton"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="38dp"
+        android:text="Add" />
+
+    <ListView
+        android:id="@+id/listView1"
+        android:layout_width="match_parent"
+        android:layout_height="275dp"
+        android:layout_alignLeft="@+id/backSButton" >
+
+    </ListView>
 
 </RelativeLayout>

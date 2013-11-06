@@ -9,20 +9,42 @@ import android.widget.Toast;
 //this will store the user shopping list
 public class ShoppingList 
 {
-	private Vector<String> shoppingList = new Vector<String>();
+	private static ShoppingList myList;
+	
+	private static Vector<Item> shoppingList = new Vector<Item>();
+	
+	private ShoppingList(){}
+	
+	public static ShoppingList getInstance()
+	{
+		if(myList == null)
+		{
+			myList = new ShoppingList();
+		}
+		
+		return myList;
+	}
 	
 	@SuppressLint("NewApi")
-	public void addElement(String element, Context context)
+	public void addElement(Item element, Context context)
 	{
 		if(element.isEmpty())
 		{
-			Toast.makeText(context, "Input invalid: Add Elementt", Toast.LENGTH_SHORT);
+			Toast.makeText(context, "Input invalid: Add Elementt", Toast.LENGTH_SHORT).show();
 		}
-		shoppingList.add(element);
+		else
+		{
+			shoppingList.add(element);
+		}
 	}
 	
-	public Vector<String> getShoppingList()
+	public Vector<Item> getShoppingList()
 	{
 		return shoppingList;
+	}
+	
+	public void clearItems()
+	{
+		shoppingList.clear();
 	}
 }

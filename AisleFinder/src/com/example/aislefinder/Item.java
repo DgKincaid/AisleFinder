@@ -8,9 +8,10 @@ public class Item
 	private String itemDescription;
 	private String itemLocation;
 	
-	public Item(String name, String itemDescription, String location)
+	public Item(String name, String description, String location)
 	{
 		itemName = name;
+		itemDescription = description;
 		itemLocation = location;
 	}
 	
@@ -18,5 +19,19 @@ public class Item
 	{
 		String[] list = {itemName, itemDescription, itemLocation};
 		return list;
+	}
+	
+	public boolean isEmpty()
+	{
+		if(itemName.isEmpty() || itemDescription.isEmpty() || itemLocation.isEmpty())
+		{
+			return true;
+		}
+		return false;
+	}
+	
+	public String getName()
+	{
+		return itemName;
 	}
 }
