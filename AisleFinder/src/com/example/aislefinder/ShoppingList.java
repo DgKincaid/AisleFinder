@@ -47,4 +47,9 @@ public class ShoppingList
 	{
 		shoppingList.clear();
 	}
+	
+	public void delItem(int position)
+	{
+		shoppingList.remove(position);
+	}
 }

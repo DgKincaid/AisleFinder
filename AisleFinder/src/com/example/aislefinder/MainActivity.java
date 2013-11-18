@@ -1,11 +1,12 @@
 package com.example.aislefinder;
 
 import java.util.Vector;
-
+import android.support.v4.app.FragmentActivity;
 import android.inputmethodservice.Keyboard;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.support.v4.app.FragmentManager;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -13,7 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends Activity 
+public class MainActivity extends FragmentActivity 
 {
 
 	public ShoppingList myList = ShoppingList.getInstance();
@@ -32,14 +33,13 @@ public class MainActivity extends Activity
 		Item item6 = new Item("6", "6", "6");
 		Item item7 = new Item("7", "7", "7");
 		
-		myList.addElement(item1, getApplicationContext());
-		myList.addElement(item2, getApplicationContext());
-		
 		//Buttons that are in the main activity
 		Button searchButton = (Button)findViewById(R.id.searchButton);
 		Button addButton = (Button)findViewById(R.id.addButton);
 		Button clearButton = (Button)findViewById(R.id.clearButton);
 		Button showButton = (Button)findViewById(R.id.showButton);
+		
+		final EditText eText = (EditText) findViewById(R.id.editText1);
 		
 		searchButton.setOnClickListener(new View.OnClickListener() 
 		{	
@@ -48,6 +48,7 @@ public class MainActivity extends Activity
 			public void onClick(View v) 
 			{
 				Intent i = new Intent(getApplicationContext(), Search.class);
+				i.putExtra("name", eText.getText().toString());
 				startActivity(i);
 				
 				Toast.makeText(getApplicationContext(), "Search Button", Toast.LENGTH_SHORT).show();
@@ -61,7 +62,9 @@ public class MainActivity extends Activity
 			public void onClick(View v) 
 			{
 				Toast.makeText(getApplicationContext(), "Add Button", Toast.LENGTH_SHORT).show();
-				//myList.addElement(eText.getText().toString(), getApplicationContext());
+				Item temp = FireBase.getData(getApplicationContext(),eText.getText().toString());
+				
+				myList.addElement(temp, getApplicationContext());
 			}
 		});
 		
@@ -71,7 +74,9 @@ public class MainActivity extends Activity
 			@Override
 			public void onClick(View v) 
 			{
-				//myList.clearItems();
+				ConfirmActivity temp = new ConfirmActivity();
+				
+				temp.show(getSupportFragmentManager(), "This is a test");
 			}
 		});
 		

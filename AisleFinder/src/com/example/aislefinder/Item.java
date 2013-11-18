@@ -8,6 +8,12 @@ public class Item
 	private String itemDescription;
 	private String itemLocation;
 	
+	public Item()
+	{
+		itemName = null;
+		itemDescription = null;
+		itemLocation= null;
+	}
 	public Item(String name, String description, String location)
 	{
 		itemName = name;
@@ -33,5 +39,25 @@ public class Item
 	public String getName()
 	{
 		return itemName;
+	}
+	
+	public String getLocation()
+	{
+		return itemLocation;
+	}
+	
+	public void setName(String name)
+	{
+		itemName = name;
+	}
+	
+	public void setLocation(String loc)
+	{
+		itemLocation = loc;
+	}
+	
+	public void setDescription(String des)
+	{
+		itemDescription = des;
 	}
 }

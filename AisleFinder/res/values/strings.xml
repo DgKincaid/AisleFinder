@@ -7,5 +7,9 @@
     <string name="title_activity_search">Search</string>
     <string name="title_activity_show">Show</string>
     <string name="title_activity_item_zoom">ItemZoom</string>
+    <string name="title_activity_confirm">ConfirmActivity</string>
+    <string name="Ok">Ok</string>
+    <string name="dialog_delete">Delete Shopping List?</string>
+    <string name="cancel">Cancel</string>
 
 </resources>

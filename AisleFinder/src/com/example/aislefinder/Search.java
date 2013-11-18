@@ -1,12 +1,21 @@
 package com.example.aislefinder;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.Vector;
+
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Toast;
 
 public class Search extends Activity 
@@ -14,20 +23,36 @@ public class Search extends Activity
 
 	private Button backButton;
 	private Button addButton;
-	private Vector<Item> myList;
+	private ShoppingList list = ShoppingList.getInstance();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_search);
+
+		Bundle extras = getIntent().getExtras();
+		String value = "";
 		
-		//myList = ShoppingList.getShoppingList();
+		if (extras != null)
+		{
+		    value = extras.getString("name");
+		}
+		
+		final Item item = FireBase.getData(getApplicationContext(), value);
+		
+		Vector<Item> itemList = new Vector<Item>();
+		itemList.addElement(item);
+		
+		ListView listview = (ListView) findViewById(R.id.listView1);
+		ItemAdapter itemAdapter;
+		
+		List<Item> arrayList = new ArrayList<Item>(itemList);
+		itemAdapter = new ItemAdapter(Search.this, R.layout.listitem, arrayList);
+		listview.setAdapter(itemAdapter);
 		
 		backButton = (Button) findViewById(R.id.backSButton);
 		addButton = (Button) findViewById(R.id.addSButton);
-		
-		//Toast.makeText(getApplicationContext(), "Item1	" + myList.indexOf(1), Toast.LENGTH_SHORT).show();
 		
 		addButton.setOnClickListener(new View.OnClickListener() 
 		{
@@ -35,6 +60,7 @@ public class Search extends Activity
 			public void onClick(View v) 
 			{
 				Toast.makeText(getApplicationContext(), "Add Button Clicked", Toast.LENGTH_SHORT).show();
+				list.addElement(item, getApplicationContext());
 			}
 		});
 		
