@@ -40,6 +40,10 @@
             android:name="com.example.aislefinder.ConfirmActivity"
             android:label="@string/title_activity_confirm" >
         </activity>
+        <activity
+            android:name="com.example.aislefinder.Activity"
+            android:label="@string/title_activity_" >
+        </activity>
     </application>
 
 </manifest>

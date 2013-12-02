@@ -8,15 +8,20 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".Search" >
 
-    
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
     <Button
         android:id="@+id/backSButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/textView1"
-        android:layout_marginBottom="54dp"
-        android:layout_marginRight="19dp"
+        android:layout_marginBottom="72dp"
         android:text="Back" />
 
     <Button
@@ -25,16 +30,27 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/backSButton"
         android:layout_alignBottom="@+id/backSButton"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="38dp"
+        android:layout_alignRight="@+id/textView1"
+        android:layout_marginRight="22dp"
         android:text="Add" />
 
-    <ListView
-        android:id="@+id/listView1"
-        android:layout_width="match_parent"
-        android:layout_height="275dp"
-        android:layout_alignLeft="@+id/backSButton" >
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="47dp"
+        android:layout_toRightOf="@+id/backSButton"
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    </ListView>
+    <Button
+        android:id="@+id/button1"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/backSButton"
+        android:layout_alignRight="@+id/textView2"
+        android:text="Refresh" />
 
 </RelativeLayout>

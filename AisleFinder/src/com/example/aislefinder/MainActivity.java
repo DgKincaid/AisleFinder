@@ -24,14 +24,6 @@ public class MainActivity extends FragmentActivity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
-		Item item1 = new Item("1", "1", "1");
-		Item item2 = new Item("2", "2", "2");
-		Item item3 = new Item("3", "3", "3");
-		Item item4 = new Item("4", "4", "4");
-		Item item5 = new Item("5", "5", "5");
-		Item item6 = new Item("6", "6", "6");
-		Item item7 = new Item("7", "7", "7");
 		
 		//Buttons that are in the main activity
 		Button searchButton = (Button)findViewById(R.id.searchButton);

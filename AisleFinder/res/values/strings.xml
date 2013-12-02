@@ -11,5 +11,6 @@
     <string name="Ok">Ok</string>
     <string name="dialog_delete">Delete Shopping List?</string>
     <string name="cancel">Cancel</string>
+    <string name="title_activity_">Activity</string>
 
 </resources>

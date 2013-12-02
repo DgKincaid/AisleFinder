@@ -62,6 +62,7 @@ public final class R {
         public static final int cancel=0x7f050009;
         public static final int dialog_delete=0x7f050008;
         public static final int hello_world=0x7f050002;
+        public static final int title_activity_=0x7f05000a;
         public static final int title_activity_confirm=0x7f050006;
         public static final int title_activity_item_zoom=0x7f050005;
         public static final int title_activity_search=0x7f050003;

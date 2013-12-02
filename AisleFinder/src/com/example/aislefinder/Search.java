@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Search extends Activity 
@@ -23,6 +24,7 @@ public class Search extends Activity
 
 	private Button backButton;
 	private Button addButton;
+	private Button searchButton;
 	private ShoppingList list = ShoppingList.getInstance();
 	
 	@Override
@@ -41,19 +43,22 @@ public class Search extends Activity
 		
 		final Item item = FireBase.getData(getApplicationContext(), value);
 		
-		Vector<Item> itemList = new Vector<Item>();
-		itemList.addElement(item);
-		
-		ListView listview = (ListView) findViewById(R.id.listView1);
-		ItemAdapter itemAdapter;
-		
-		List<Item> arrayList = new ArrayList<Item>(itemList);
-		itemAdapter = new ItemAdapter(Search.this, R.layout.listitem, arrayList);
-		listview.setAdapter(itemAdapter);
+		final TextView name = (TextView) findViewById(R.id.textView1);
+		final TextView loc = (TextView) findViewById(R.id.textView2);
 		
 		backButton = (Button) findViewById(R.id.backSButton);
 		addButton = (Button) findViewById(R.id.addSButton);
+		searchButton = (Button) findViewById(R.id.button1);
 		
+		searchButton.setOnClickListener(new View.OnClickListener() 
+		{
+			@Override
+			public void onClick(View v) 
+			{
+				name.setText(item.getName());
+				loc.setText(item.getLocation());
+			}
+		});
 		addButton.setOnClickListener(new View.OnClickListener() 
 		{
 			@Override
