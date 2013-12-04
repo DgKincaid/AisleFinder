@@ -9,11 +9,12 @@ import com.firebase.client.ValueEventListener;
 
 import android.R.string;
 import android.content.Context;
+import android.support.v4.app.FragmentActivity;
 import android.widget.Toast;
 
-public class FireBase 
+public class FireBase extends FragmentActivity
 {
-	public static Item getData(final Context context, final String name)
+	public Item getData(final Context context, final String name)
 	{
 		// Create a reference to a Firebase location
 		String url = "https://mfreddata.firebaseio.com/ItemFinder/Grocery_Store1/";
@@ -31,6 +32,8 @@ public class FireBase
 		    	
 		    	if (value == null) 
 		    	{
+		    		//InvalidOption temp = new InvalidOption();
+		    		//temp.show(getSupportFragmentManager(), "Invalid");
 		            Toast.makeText(context, "value is null", Toast.LENGTH_SHORT).show();
 		            //Go to popup telling user to reenter item
 		    	}

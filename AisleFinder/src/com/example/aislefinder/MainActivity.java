@@ -30,6 +30,7 @@ public class MainActivity extends FragmentActivity
 		Button addButton = (Button)findViewById(R.id.addButton);
 		Button clearButton = (Button)findViewById(R.id.clearButton);
 		Button showButton = (Button)findViewById(R.id.showButton);
+		final FireBase base = new FireBase();
 		
 		final EditText eText = (EditText) findViewById(R.id.editText1);
 		
@@ -44,6 +45,8 @@ public class MainActivity extends FragmentActivity
 				startActivity(i);
 				
 				Toast.makeText(getApplicationContext(), "Search Button", Toast.LENGTH_SHORT).show();
+				
+				eText.setText("");
 			}
 		});
 		
@@ -54,7 +57,8 @@ public class MainActivity extends FragmentActivity
 			public void onClick(View v) 
 			{
 				Toast.makeText(getApplicationContext(), "Add Button", Toast.LENGTH_SHORT).show();
-				Item temp = FireBase.getData(getApplicationContext(),eText.getText().toString());
+				
+				Item temp = base.getData(getApplicationContext(),eText.getText().toString());
 				
 				myList.addElement(temp, getApplicationContext());
 			}

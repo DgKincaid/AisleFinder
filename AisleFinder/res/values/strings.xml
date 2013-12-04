@@ -12,5 +12,6 @@
     <string name="dialog_delete">Delete Shopping List?</string>
     <string name="cancel">Cancel</string>
     <string name="title_activity_">Activity</string>
+    <string name="dialog_invalid">Invalid Input</string>
 
 </resources>

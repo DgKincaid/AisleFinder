@@ -28,14 +28,7 @@ public class ShoppingList
 	@SuppressLint("NewApi")
 	public void addElement(Item element, Context context)
 	{
-		if(element.isEmpty())
-		{
-			Toast.makeText(context, "Input invalid: Add Elementt", Toast.LENGTH_SHORT).show();
-		}
-		else
-		{
-			shoppingList.add(element);
-		}
+		shoppingList.add(element);
 	}
 	
 	public Vector<Item> getShoppingList()

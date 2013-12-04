@@ -41,7 +41,8 @@ public class Search extends Activity
 		    value = extras.getString("name");
 		}
 		
-		final Item item = FireBase.getData(getApplicationContext(), value);
+		FireBase base= new FireBase();
+		final Item item = base.getData(getApplicationContext(), value);
 		
 		final TextView name = (TextView) findViewById(R.id.textView1);
 		final TextView loc = (TextView) findViewById(R.id.textView2);
