@@ -7,6 +7,7 @@ public class Item
 	private String itemName;
 	private String itemDescription;
 	private String itemLocation;
+	private String itemPrice;
 	
 	public Item()
 	{
@@ -44,6 +45,10 @@ public class Item
 	public String getLocation()
 	{
 		return itemLocation;
+	}
+	public String getDescription()
+	{
+		return itemDescription;
 	}
 	
 	public void setName(String name)

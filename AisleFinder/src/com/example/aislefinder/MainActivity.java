@@ -1,6 +1,7 @@
 package com.example.aislefinder;
 
 import java.util.Vector;
+
 import android.support.v4.app.FragmentActivity;
 import android.inputmethodservice.Keyboard;
 import android.os.Bundle;
@@ -41,7 +42,10 @@ public class MainActivity extends FragmentActivity
 			public void onClick(View v) 
 			{
 				Intent i = new Intent(getApplicationContext(), Search.class);
-				i.putExtra("name", eText.getText().toString());
+				FireBase base= new FireBase();
+				final Item item = base.getData(getApplicationContext(),  eText.getText().toString());
+				myList.addItem(item);
+				
 				startActivity(i);
 				
 				Toast.makeText(getApplicationContext(), "Search Button", Toast.LENGTH_SHORT).show();

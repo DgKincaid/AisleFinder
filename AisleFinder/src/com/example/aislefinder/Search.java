@@ -32,20 +32,18 @@ public class Search extends Activity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_search);
-
-		Bundle extras = getIntent().getExtras();
-		String value = "";
 		
-		if (extras != null)
-		{
-		    value = extras.getString("name");
-		}
-		
-		FireBase base= new FireBase();
-		final Item item = base.getData(getApplicationContext(), value);
+		final Item item = list.getItem();
 		
 		final TextView name = (TextView) findViewById(R.id.textView1);
 		final TextView loc = (TextView) findViewById(R.id.textView2);
+		final TextView des = (TextView) findViewById(R.id.textView3);
+		final TextView price = (TextView) findViewById(R.id.textView4);
+		
+		
+		name.setText(item.getName());
+		loc.setText(item.getLocation());
+		des.setText(item.getDescription());
 		
 		backButton = (Button) findViewById(R.id.backSButton);
 		addButton = (Button) findViewById(R.id.addSButton);
@@ -58,6 +56,7 @@ public class Search extends Activity
 			{
 				name.setText(item.getName());
 				loc.setText(item.getLocation());
+				des.setText(item.getDescription());
 			}
 		});
 		addButton.setOnClickListener(new View.OnClickListener() 

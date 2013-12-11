@@ -12,6 +12,7 @@ public class ShoppingList
 	private static ShoppingList myList;
 	
 	private static Vector<Item> shoppingList = new Vector<Item>();
+	private static Item temp = new Item();
 	
 	private ShoppingList(){}
 	
@@ -34,6 +35,15 @@ public class ShoppingList
 	public Vector<Item> getShoppingList()
 	{
 		return shoppingList;
+	}
+	
+	public Item getItem()
+	{
+		return temp;
+	}
+	public void addItem(Item item)
+	{
+		temp = item;
 	}
 	
 	public void clearItems()

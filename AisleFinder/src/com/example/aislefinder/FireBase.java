@@ -48,7 +48,7 @@ public class FireBase extends FragmentActivity
 		    		temp.setName(name);
 		    		temp.setDescription(description);
 		    		
-		    		Toast.makeText(context, "Location " + location, Toast.LENGTH_LONG).show();
+		    		Toast.makeText(context, "Location " + description, Toast.LENGTH_LONG).show();
 		    	}
 		    }
 
